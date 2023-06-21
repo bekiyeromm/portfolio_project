@@ -1,23 +1,19 @@
 from flask import Flask,render_template, jsonify
+from database import load_users_from_db
+# from sqlalchemy import text
+# from database import engine
 app = Flask(__name__)
-tasks = [
-	{
-		'id':'1',
-		'title':'login',
-	},
-	{
-		'id':'2',
-		'title':'sign up',
-	}
-]
+	
+
 
 @app.route('/')
 def home():
-	return render_template('home.html', task = tasks);
+	user = load_users_from_db()
+	return render_template('home.html', jobs = user);
 
 @app.route("/tasks")
-def list_of_jobs():
-	return jsonify(tasks)
+def list_of_users():
+	pass
 
 @app.route("/logine")
 def login():

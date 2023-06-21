@@ -36,14 +36,15 @@
             pharmacies improve efficiency, accuracy, and overall workflow, making it
             an essential tool for modern pharmacy management.
         </p>
-        <!-- <div class="text-center mt-2 mb-4">
-        {% for ta in task %}
-        <div>{{ ta['title'] }}</div>
-        {% endfor %}
-      </div> -->
+        
         <div class="text-center">
             <a href="mailto:bekitena34@gmail.com?subject=requesting for medicine" target="_blank" mt-2 mb-4">contact
                 us</a>
+                <div class="text-center mt-2 mb-4">
+                    {% for ta in jobs %}
+                    <div>{{ ta['email'] }}</div>
+                    {% endfor %}
+                  </div>
             <div> {% include 'footer.html' %} </div>
         </div>
     </div>

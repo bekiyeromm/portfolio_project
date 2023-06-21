@@ -9,43 +9,52 @@
   <!-- <link rel="stylesheet" type="text/css" href="signup.css"> -->
 </head>
 <body>
-  <div class="container">
+  {% include 'nav.html' %}
+  <div class="text-center mt-2 mb-4">
     <h1>Sign Up</h1>
     <form>
-      <label for="id">ID</label>
-      <input type="text" id="id" placeholder="Enter your ID">
+      <div class="text-center mt-2 mb-4">
+        <label for="id">ID</label>
+        <input type="text" id="id" placeholder="Enter your ID">
+      </div>
 
-      <label for="firstName">First Name</label>
-      <input type="text" id="firstName" placeholder="Enter your first name">
+      <div class="text-center mt-2 mb-4">
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" placeholder="Enter your first name">
+      </div>
 
-      <label for="lastName">Last Name</label>
-      <input type="text" id="lastName" placeholder="Enter your last name">
+      <div class="text-center mt-2 mb-4">
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" placeholder="Enter your last name">
+      </div>
 
-      <label for="sex">Sex</label>
-      <select id="sex">
+      <div class="text-center mt-2 mb-4">
+        <label for="sex">Sex</label>
+        <select id="sex">
         <option value="male">Male</option>
         <option value="female">Female</option>
         <option value="other">Other</option>
       </select>
+      </div>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" placeholder="Enter your email">
+      <div class="text-center mt-2 mb-4">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email">
+      </div>
 
-      <label for="password">Password</label>
-      <input type="password" id="password" placeholder="Enter your password">
+      <div class="text-center mt-2 mb-4">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password">
+      </div>
 
-      <label for="confirmPassword">Confirm Password</label>
-      <input type="password" id="confirmPassword" placeholder="Confirm your password">
+      <div class="text-center mt-2 mb-4">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" placeholder="Confirm your password">
+      </div>
 
-      <label for="role">Role</label>
-      <select id="role">
-        <option value="admin">Admin</option>
-        <option value="user">User</option>
-        <option value="guest">Guest</option>
-      </select>
-
-      <input type="submit" value="Sign Up">
+      <div class="text-center mt-2 mb-4"><input type="submit" value="Sign Up"></div>
     </form>
   </div>
+  <div style="height: 100%; margin: 0; padding: 0;">{% include 'footer.html' %}</div>
 </body>
 </html>
