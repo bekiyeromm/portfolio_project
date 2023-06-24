@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine, text
-from flask import jsonify
+from flask import jsonify,request,redirect,render_template
 engine = create_engine(
     "mysql+pymysql://pims_user:pims_user_pwd@localhost/pims_db?charset=utf8mb4")
 
@@ -23,3 +23,28 @@ def load_employe_from_db():
         id,fn,ln,sex,email,pas = emp
         employees.append({"id":id,"first_name":fn,"last_name":ln,"sex":sex,"email":email,"password":pas})
     return employees
+
+def load_emp_from_db():
+    with engine.connect() as conn:
+        res = conn.execute(text("select * from emp"))
+        res_dict = []
+        for row in res.all():
+            name, email,link = row  # Extract the values from the row
+            res_dict.append({"name": name, "email": email, "link": link})  # Create a dictionary
+        return res_dict
+# insert data into emp database
+def insert_into_emp_db(dataa):
+    with engine.connect() as conn:
+        res = text("INSERT INTO emp (name, email, link) VALUES (:name, :email, :link)")
+        conn.execute(res, {"name": dataa['name'], "email": dataa['email'], "link": dataa['link']})
+        conn.commit()
+
+# search  data from emp database using  id
+def search_data_from_emp():
+    with engine.connect() as conn:
+        conn.execute(text("select * from emp where id=:id"))
+        conn.commit()
+
+       
+
+

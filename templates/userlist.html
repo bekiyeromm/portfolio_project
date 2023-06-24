@@ -13,11 +13,10 @@
   </head>
   <body>
     {% include 'nav.html' %}
-
     <div class="text-center mt-2 mb-4">
       <b>Email list of system users</b><br><br>
-      {% for ta in users %}
-      <div>{{ ta['email'] }}</div>
+      {% for ta in us %}
+      <div><b>{{ ta ['email']}}</b></div>
       {% endfor %}
     </div>
     <div style="height: 100%; margin: 0; padding: 0">
