@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <link rel="stylesheet" type="text/css" href="/static/styles/nav.css" />
+</head>
+<body>
+  <ul class="navbar">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Employe Management</a>
+      <ul class="submenu">
+        <li><a href="http://127.0.0.1:5000/add_emp">Add Employee</a></li>
+        <li><a href="http://127.0.0.1:5000/update_emp"">Update Employee</a></li>
+        <li><a href="http://127.0.0.1:5000/delete_emp"">Delete Employee</a></li>
+        <li><a href=" http://127.0.0.1:5000/search_emp"">Search Employee</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Drug Management</a>
+        <ul class="submenu">
+          <li><a href="http://127.0.0.1:5000/add_drug">Add Medicine </a></li>
+          <li><a href="http://127.0.0.1:5000/update_drug">Update Medicine </a></li>
+          <li><a href="http://127.0.0.1:5000/delete_drug">Delete Medicine</a></li>
+          <li><a href="http://127.0.0.1:5000/search_drug">Search Medicine</a></li>
+          <li><a href="http://127.0.0.1:5000/sell_drug">Sell Drug Medicine</a></li>
+          <li><a href="http://127.0.0.1:5000/generate_drug">Generate report</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Drug Management</a>
+        <ul class="submenu">
+          <li><a href="#">Update</a></li>
+          <li><a href="#">Delete</a></li>
+          <li><a href="#">Search</a></li>
+        </ul>
+      </li>
+    <li><a href="contact_us.html">Contact</a></li>
+  </ul>
+  <div  class=""text-center mt-2 mb-2 "></div>>
+    {% include 'footer.html' %}
+  </div>
+</body>
+</html>

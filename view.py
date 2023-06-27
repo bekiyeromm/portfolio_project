@@ -3,23 +3,23 @@ from sqlalchemy import text
 from database import show_drug, insert_into_drug_db,engine
 from database import search_data_from_emp, load_employe_from_db
 from database import insert_into_emp_db, load_users_from_db, load_emp_from_db
-app = Flask(__name__)
+view = Flask(__name__)
 	
 
 
-@app.route('/')
+@view.route('/')
 def home():
 	user = load_users_from_db()
 	return render_template('login.html', jobs = user);
 
  # creating api to retrive the user email and pass as json file
-@app.route("/user")
+@view.route("/user")
 def list_of_users():
 	user = load_users_from_db()
 	return jsonify(user)
 
 # api to render login.html
-@app.route('/login', methods=['POST'])
+@view.route('/login', methods=['POST'])
 def login():
 	
 	username = request.form['username']
@@ -31,7 +31,7 @@ def login():
 			userr = result.fetchone()
 			if userr:
             # Redirect to the home page or display a success message
-				return redirect('/search')
+				return redirect('/signup')
 			else:
             # Display an error message for invalid credentials
 				return render_template('login.html', error_message='Invalid username or password')
@@ -44,57 +44,57 @@ def login():
 
 
 
-@app.route("/signup")
+@view.route("/add_emp", methods=['get', 'post'])
 def reg_employe():
 	emp = load_employe_from_db()
 	return render_template('regform.html', users=emp)
 
 
-@app.route("/about")
+@view.route("/about")
 def about():
 	return render_template('aboutus.html')
 
 # return json file of employes information
-@app.route("/emp/")
+@view.route("/emp/")
 def show_employee():
 	us = load_employe_from_db()
 	# return jsonify(users)
 	return render_template('userlist.html', us=us)
 
-# @app.route("/regg", methods = ['post'])
+# @view.route("/regg", methods = ['post'])
 # def regster():
 # 	dataa = load_emp_from_db()
-# 	return render_template("app_submited.html",app=dataa)
+# 	return render_template("view_submited.html",view=dataa)
 # 	# return jsonify(dataa)
 
 # # display data from the form as json file
-# @app.route("/regg", methods = ['post'])
+# @view.route("/regg", methods = ['post'])
 # def register():
 # 	data_from_form = request.form
 # 	#return jsonify(dataa)
-# 	return render_template('app_submited.html', form_data=data_from_form)
+# 	return render_template('view_submited.html', form_data=data_from_form)
 
 # insert form data into emp table
-@app.route("/regg/", methods = ['post'])
+@view.route("/reg_employe", methods = ['post'])
 def register_emp():
 	data_from_form = request.form
 	# emp = load_emp_from_db()
 	insert_into_emp_db(data_from_form)
 	return render_template("app_submited.html", form_data=data_from_form)
 
-@app.route("/search")
+@view.route("/search")
 def display_all_employe():
 	emp_s = search_data_from_emp()
 	return render_template("search.html", emp_s=emp_s)
 	
-@app.route("/medicine/regg", methods=["post", "get"])
+@view.route("/medicine/regg", methods=["post", "get"])
 def drug_reg():
 	drug_data = request.form
 	#drug_data = show_drug()
 	# return jsonify(drug_data)
 	# drug_list = insert_into_drug_db()
-	insert_into_drug_db(drug_data)
-	return render_template("drug_submited.html", drug_data=drug_data)
+	# insert_into_drug_db(drug_data)
+	return render_template("drug_reg.html", drug_data=drug_data)
 
 if __name__ == ('__main__'):
-	app.run(host='0.0.0.0', debug = True);
+	view.run(host='0.0.0.0', debug = True);

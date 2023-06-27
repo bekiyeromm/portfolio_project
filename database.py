@@ -38,13 +38,31 @@ def insert_into_emp_db(dataa):
         res = text("INSERT INTO emp (name, email, link) VALUES (:name, :email, :link)")
         conn.execute(res, {"name": dataa['name'], "email": dataa['email'], "link": dataa['link']})
         conn.commit()
+        redirect ('home.html')
 
-# search  data from emp database using  id
+# search all data from emp database using 
 def search_data_from_emp():
     with engine.connect() as conn:
-        conn.execute(text("select * from emp where id=:id"))
-        conn.commit()
+        result = conn.execute(text("select * from emp")).fetchall()
+        # employees = []
+        # for emp in result.all():
+        #     id,fn,email,link = emp
+        #     employees.append({"id":id,"name":fn,"email":email,"link":link})
+        return result
 
-       
-
-
+# insert into drug database
+def show_drug():
+    with engine.connect() as conn:
+        result = conn.execute(text("select * from medicine"))
+        result_dict = []
+        for row in result.all():
+            id,name,manufacturer,price,quantity = row  # Extract the values from the row
+            result_dict.append({"id": id, "name": name, "manufacturer": manufacturer,"price": price, "quantity": quantity})  # Create a dictionary
+        return result_dict
+    
+# insert into medicine table   
+def insert_into_drug_db(drug_data):
+    with engine.connect() as con:
+        med = text("INSERT INTO medicine (name, manufacturer, price, quantity) VALUES ( :name, :manufacturer, :price, :quantity)")
+        con.execute(med, {"name": drug_data['name'], "manufacturer": drug_data['manufacturer'], "price": drug_data['price'], "quantity": drug_data['quantity']})
+        con.commit()

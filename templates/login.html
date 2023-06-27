@@ -12,45 +12,27 @@
     <title>Pims</title>
   </head>
   <body>
-    {% include 'nav.html' %}
-    <div class="container">
+     <div class="container">
       <h1 class="text-center mt-2 mb-4">
         Well come to pharmacy information management system
       </h1>
       <div class="text-center">
         <b>Do you have already an acount ?</b>
-        <form>
-          <div class="text-center">
-            <label for="username">Username</label>
-            <input
-              class="text-center mt-2 mb-4"
-              type="text"
-              id="username"
-              placeholder="Enter your username"
-            />
-          </div>
-          <div class="text-center">
-            <label for="password">Password</label>
-            <input
-              class="text-center"
-              type="password"
-              id="password"
-              placeholder="Enter your password"
-            />
-          </div>
-          <div class="text-center mt-3">
-            <input class="text-center" type="submit" value="Login" />
-          </div>
-        </form><br> <br>
+        <form action="/login" method="POST">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required><br><br>
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required><br><br>
+          <input type="submit" value="Login">
+        </form>
       </div>
       <div style="height: 100%; margin: 0; padding: 0">
-        <p class="lead">don't you have an acount ?</p>
-        {% include 'regform.html' %}
+        <a href="http://127.0.0.1:5000/signup">don't you have an acount ?</a>   
       </div>
     </div>
    
     <div style="height: 100%; margin: 0; padding: 0">
-      {% include 'footer.html' %}
+     {% include 'footer.html' %}
     </div>
   </body>
 </html>
