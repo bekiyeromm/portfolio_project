@@ -12,33 +12,42 @@
     <title>Pims</title>
   </head>
 
-  <body>
+  <body style="background-color: #e0e9f0; color: #000000;">
     {% include 'nav.html' %}
 
     <div class="container">
       <h2 class="text-center mt-2 mb-4">Register Here!</h2>
-      <form method="POST" action="/regg">
+      <form action="/regg" method="post" >
         <!-- regg is the same as the name of the route -->
         <div class="mb-3 mt-4">
-          <label for="name">name</label><br />
-          <input type="text" name="name" required placeholder="bereket tena" />
+          <label for="name">Name</label><br />
+          <input type="text" name="Name" required placeholder="bereket tena" />
         </div>
         <div class="mb-3 mt-4">
-          <label for="email">Email address</label><br />
+          <label for="Contact">Contact</label><br />
           <input
-            type="email"
-            name="email"
+            type="text"
+            name="Contact"
             required
-            placeholder="beki1212@gmail.com"
+            placeholder="0918664539"
           />
         </div>
         <div class="mb-3 mt-4">
-          <label for="link">linkdlin url</label><br />
+          <label for="link">Sex</label><br />
           <input
             type="text"
-            name="link"
+            name="Sex"
             required
-            placeholder="www/linkedln.com/bereket1212"
+            placeholder="Male"
+          />
+        </div>
+        <div class="mb-3 mt-4">
+          <label for="link">Address</label><br>
+          <input
+            type="text"
+            name="Address"
+            required
+            placeholder="Debremarkos"
           />
         </div>
         <div class="mb-3 mt-4">

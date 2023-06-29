@@ -18,15 +18,15 @@
     </style>
 </head>
 
-<body>
+<body style="background-color: #e0e9f0; color: #000000;">
     {% include 'nav.html' %}
-    <h1 class="text-center mb-2">
-        Well come to Neba pharmacy
-    </h1>
+    <h2 class="text-center mb-2">
+        Well come to PIMS
+    </h2><br><br><br>
     <img src="/static/pharmacy.jpg" class="img-fluid" id="banner" alt="pharmacy" height="320" />
     <div class="container">
         <h2 class="text-center mt-2 mb-4">About Us</h2>
-        
+
         <p class="lead">
             Pharmacy Information Management System (PIMS) software is a specialized
             software solution designed to manage and streamline various aspects of
@@ -36,20 +36,11 @@
             pharmacies improve efficiency, accuracy, and overall workflow, making it
             an essential tool for modern pharmacy management.
         </p>
-        
+
         <div class="text-center">
             <a href="mailto:bekitena34@gmail.com?subject=requesting for medicine" target="_blank" mt-2 mb-4">contact
                 us</a>
-                <div class="text-center mt-2 mb-4">
-                    {% for ta in jobs %}
-                    <div>{{ ta['email'] }}</div>
-                    {% endfor %}
-                  </div>
-                  <!-- create apply button -->
-                  <div class="col-2 padding-right:16px;">
-                    <a href="/emp/" type="button" class="btn btn-outline-primary float-right align-middle">display email</a>
-                </div>
-            <div></div> {% include 'footer.html' %} </div>
+            <div>{% include 'footer.html' %}</div>
         </div>
     </div>
 </body>

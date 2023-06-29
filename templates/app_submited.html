@@ -16,15 +16,18 @@
     {% include 'nav.html' %}
     <div class="container">
       <h1 class="text-center mt-2 mb-4">Registration</h1>
-      <h4>dear {{ form_data['name'] }} you register succesfully</h4>
+      <h4>dear {{ form_data['Name'] }} you register succesfully</h4>
       <b>full name: </b>
-      <div class="mb-2">{{ form_data['name'] }}<br /></div>
+      <div class="mb-2">{{ form_data['Name'] }}<br /></div>
 
-      <b>email: </b>
-      <div class="mb-2">{{ form_data['email'] }}<br /></div>
+      <b>Contact: </b>
+      <div class="mb-2">{{ form_data['Contact'] }}<br /></div>
 
-      <b>linkedlin url: </b>
-      <div class="mb-2">{{ form_data['link'] }}<br /></div>
+      <b>Sex: </b>
+      <div class="mb-2">{{ form_data['Sex'] }}<br /></div>
+
+      <b>Address: </b>
+      <div class="mb-2">{{ form_data['Address'] }}<br /></div>
     </div>
     <div>{% include 'footer.html' %}</div>
   </body>

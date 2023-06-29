@@ -18,19 +18,25 @@
         <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Email</th>
-            <th>link</th>
+            <th>Contact</th>
+            <th>Sex</th>
+            <th>Address</th>
         </tr>
         {% for row in emp_s %}
         <tr>
-            <td>{{ row[3] }}</td>
+            <td>{{ row[0] }}</td>
             <td>{{ row[1] }}</td>
             <td>{{ row[2] }}</td>
-            <td>{{ row[1] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
         </tr>
         {% endfor %}
     </table>
+    <br><br>
+    <div> {% include 'delete_emp.html' %} </div>
+    <br><br>
     </div>
+    
     <div> {% include 'footer.html' %} </div>
 </body>
 

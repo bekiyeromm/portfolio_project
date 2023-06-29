@@ -15,18 +15,11 @@
   <body style="background-color: #e0e9f0; color: #000000;">
     {% include 'nav.html' %}
     <div class="container">
-      <h1 class="text-center mt-2 mb-4">Registration</h1>
-      <h4>drug {{ da['name'] }}registerd succesfully</h4>
-      <b>Medicine name: </b>
-      <div class="mb-2"> {{ da['name'] }} <br> </div>
-
-      <b>Manufacturer: </b>
-      <div class="mb-2"> {{ da['manufacturer'] }} <br> </div>
-
-      <b>Expirydate: </b>
-      <div class="mb-2"> {{ da['expirydate'] }} <br> </div>
-
-    </div>
-    <div>{% include 'footer.html' %}</div>
+      <h1 class="text-center mt-2 mb-4">deleted</h1>
+      {% if drugg %}
+      <h4>drug with id = {{ drugg }} deleted succesfully</h4>
+      {% else %}
+      <h4>drug not found</h4>
+      {% endif %}
   </body>
 </html>
