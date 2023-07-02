@@ -25,3 +25,9 @@ def delete_drug_db(drug_id):
         res = text("DELETE FROM Drug WHERE DrugID = :drug_id")
         conn.execute(res, {"drug_id": drug_id})
         conn.commit()
+
+def update_drug_in_drug_db(data):
+    with engine.connect() as conn:
+        res = text("UPDATE Drug SET Name = :name, Manufacturer = :manufacturer, ExpiryDate = :expiry_date WHERE DrugID = :drug_id")
+        conn.execute(res, {"name": data['name'], "manufacturer": data['manufacturer'], "expiry_date": data['expiry_date'], "drug_id": data['drug_id']})
+        conn.commit()

@@ -1,0 +1,26 @@
+<table>
+    <tr>
+      <th>Inventory ID</th>
+      <th>Medication ID</th>
+      <th>Quantity</th>
+      <th>Location</th>
+      <th>Expiry Date</th>
+      <th>Action</th>
+    </tr>
+    {% for row in data %}
+    <tr>
+      <td>{{ row[0] }}</td>
+      <td>{{ row[1] }}</td>
+      <td>{{ row[2] }}</td>
+      <td>{{ row[3] }}</td>
+      <td>{{ row[4] }}</td>
+      <td>
+        <form action="/delete_inventory" method="POST">
+          <input type="hidden" name="inventory_id" value="{{ row[0] }}">
+          <input type="submit" value="Delete">
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  

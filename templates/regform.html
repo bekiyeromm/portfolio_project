@@ -9,40 +9,35 @@
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" type="text/css" href="/static/styles/inventory.css">
     <title>Pims</title>
   </head>
 
-  <body style="background-color: #e0e9f0; color: #000000;">
+  <body style="background-color: #e0e9f0; color: #000000">
     {% include 'nav.html' %}
 
     <div class="container">
-      <h2 class="text-center mt-2 mb-4">Register Here!</h2>
-      <form action="/regg" method="post" >
+      <h2 class="mt-2 mb-4">Register Empoloyee Here!</h2>
+      <form action="/regg" method="post">
         <!-- regg is the same as the name of the route -->
         <div class="mb-3 mt-4">
-          <label for="name">Name</label><br />
+          <label for="Name">Name</label>
           <input type="text" name="Name" required placeholder="bereket tena" />
         </div>
         <div class="mb-3 mt-4">
-          <label for="Contact">Contact</label><br />
-          <input
-            type="text"
-            name="Contact"
-            required
-            placeholder="0918664539"
-          />
+          <label for="Contact">Contact</label>
+          <input type="text" name="Contact" required placeholder="0918664539" />
         </div>
         <div class="mb-3 mt-4">
-          <label for="link">Sex</label><br />
-          <input
-            type="text"
-            name="Sex"
-            required
-            placeholder="Male"
-          />
+          <label for="sex">Sex:</label>
+          <select id="sex" name="Sex" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
         </div>
         <div class="mb-3 mt-4">
-          <label for="link">Address</label><br>
+          <label for="Address">Address</label>
           <input
             type="text"
             name="Address"
@@ -51,10 +46,11 @@
           />
         </div>
         <div class="mb-3 mt-4">
-          <input type="submit" value="submit" />
+          <input type="submit" value="Submit" />
         </div>
       </form>
     </div>
-    {% include 'footer.html' %}
+
+    <div>{% include 'footer.html' %}</div>
   </body>
 </html>

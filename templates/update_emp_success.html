@@ -9,17 +9,12 @@
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
     />
-    <title>Pims</title>
   </head>
 
   <body>
-    {% include 'nav.html' %}
+    <!-- {% include 'nav.html' %} -->
     <div class="container">
-      <h1 class="text-center mt-2 mb-4">deleted</h1>
-      {% if drugg %}
-      <h4>drug with id = {{ drugg }} deleted succesfully</h4>
-      {% else %}
-      <h4>drug not found</h4>
-      {% endif %}
+      <h1 class="text-center mt-2 mb-4">updated</h1>
+      <h4>employe {{ data['EmployeeID'] }} updated succesfully</h4>
   </body>
 </html>

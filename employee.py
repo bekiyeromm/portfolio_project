@@ -1,7 +1,13 @@
+from dotenv import load_dotenv
 from sqlalchemy import create_engine, text
+import os
 from flask import jsonify,request,redirect,render_template
-engine = create_engine(
-    "mysql+pymysql://pims_user:pims_user_pwd@localhost/pims_db?charset=utf8mb4")
+
+load_dotenv()
+
+connection_string = os.getenv('DATABASE_CONNECTION_STRING')
+engine = create_engine(connection_string)
+
 
 # login table
 def load_users_from_db():
@@ -48,8 +54,9 @@ def delete_emp_db(employee_id):
         res = text("DELETE FROM Employee WHERE EmployeeID = :employee_id")
         conn.execute(res, {"employee_id": employee_id})
         conn.commit()
-# # def update_employeee(employee_id):
-#     with engine.connect() as conn:
-#         res = text("UPDATE Employee SET Name=:name, Contact=:contact, Sex=:sex, Address=:address WHERE EmployeeID=:employee_id")
-#         conn.execute(res, {"name": name, "contact": contact, "sex": sex, "address": address, "employee_id": employee_id})
-#         conn.commit()
+
+def update_employee_in_emp_db(data):
+    with engine.connect() as conn:
+        res = text("UPDATE Employee SET Name = :name, Contact = :contact, Sex = :sex, Address = :address WHERE EmployeeID = :employee_id")
+        conn.execute(res, {"name": data['name'], "contact": data['contact'], "sex": data['sex'], "address": data['address'], "employee_id": data['employee_id']})
+        conn.commit()
