@@ -7,39 +7,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
-    <link rel="stylesheet" type="text/css" href="/static/styles/table.css" />  
-    </head>
+    <link rel="stylesheet" type="text/css" href="/static/styles/table.css" />
+</head>
 
 <body>
     {% include 'nav.html' %}
     <div class="container">
-        <div><h3 class="mb-5" style="text-align: center;">well come to Employe management page</h3></div>
-         <table>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Contact</th>
-            <th>Sex</th>
-            <th>Address</th>
-        </tr>
-        {% for row in emp_s %}
-        <tr>
-            <td>{{ row[0] }}</td>
-            <td>{{ row[1] }}</td>
-            <td>{{ row[2] }}</td>
-            <td>{{ row[3] }}</td>
-            <td>{{ row[4] }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-    <br><br>
-    <div> {% include 'delete_emp.html' %} </div>
-    <br><br>
-    <br><br>
-    <div> {% include 'update_employee.html' %} </div>
-    <br><br>
+        <div>
+            <h3 class="mb-5" style="text-align: center;">well come to Employe management page</h3>
+        </div>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Contact</th>
+                <th>Sex</th>
+                <th>Address</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+            {% for row in emp_s %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+                <td>
+                    <a href="/update_employe_form?EmployeeID=1">
+                        <i class="pencil-icon">edit</i>
+                    </a>
+                </td>
+                <td>
+                    <form action="/delete_employee" method="POST">
+                        <input type="hidden" name="employee_id" value="{{ row[0] }}">
+                        <input style="color: brown;" type="submit" value="Delete">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br><br>
+
+        <br><br>
+        <br><br>
+
+        <br><br>
     </div>
-    
+
     <div> {% include 'footer.html' %} </div>
 </body>
 

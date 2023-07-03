@@ -6,7 +6,7 @@ import os
 from drug import engine, show_drug, insert_into_drug_db,delete_drug_db,update_drug_in_drug_db
 from employee import search_data_from_emp, update_employee_in_emp_db,delete_emp_db
 from employee import insert_into_emp_db, load_users_from_db
-from inventory import insert_into_inventory,show_inv_data,delete_inventory
+from inventory import insert_into_inventory,show_inv_data,delete_inventory, update_inventory
 from sales import insert_sales_into_database,view_sold_drug
 
 
@@ -92,7 +92,7 @@ def display_all_employe():
 def delete_employee():
 	employee_id = request.form["employee_id"]
 	delete_emp_db(employee_id)
-	return render_template('delete_emp_submited.html', dell=employee_id)
+	return redirect('/search')
 
 @app.route("/update_employe_form")
 def update_employee_form():
@@ -114,7 +114,7 @@ def update_employee():
 			'address': address
 			}
 		update_employee_in_emp_db(data)
-	return render_template('update_emp_success.html', data =data)
+	return redirect('/search')
 
 #################   Drug     ##############
 
@@ -164,7 +164,7 @@ def update_drug():
 			'expiry_date': expiry_date
 			}
 		update_drug_in_drug_db(data)
-	return ('drug updated successfully')
+	return redirect('/show_drug')
 
 @app.route('/inventory_reg_form')
 def inventory_reg_form():
@@ -180,13 +180,35 @@ def display_inventory_data():
 def del_inventory():
 	inv_id = request.form['inventory_id']
 	delete_inventory(inv_id)
-	return ("inventory item deleted successfully")
+	return redirect('/show_inventory')
 
 @app.route('/show_inventory', methods=['post'])
 def insert_into_inv():
 	data=request.form
 	insert_into_inventory(data)
 	return ("inventory item added successfully")
+
+@app.route('/update_inv_form')
+def update_inv_form():
+	return render_template('update_inventory.html')
+
+@app.route('/update_inventory', methods=['POST'])
+def update_inv():
+	if request.method == 'POST':
+		inventory_id = request.form['inventoryId']
+		medication_id = request.form['medicationId']
+		quantity = request.form['quantity']
+		location = request.form['location']
+		expiry_date = request.form['expiryDate']
+		data = {
+			'inventory_id': inventory_id,
+			'medication_id': medication_id,
+			'quantity': quantity,
+			'location': location,
+			'expiry_date': expiry_date
+			}
+		update_inventory(data)
+	return redirect('/show_inventory')
 
 
 
@@ -212,40 +234,3 @@ def show_sold_drug():
 
 if __name__ == ('__main__'):
 	app.run(host='0.0.0.0', debug = True)
-# @app.route('/sell_drug', methods=['POST'])
-# def sell_drug():
-#     # Retrieve form data
-# 	medication_id = request.form['medication_id']
-# 	quantity_sold = int(request.form['quantity_sold'])
-# 	with engine.connect() as con:
-# 		res=con.execute("SELECT * FROM Drug WHERE DrugID = %s", (medication_id,))
-# 		drug = res.fetchone()
-# 		if drug is None:
-# 			return "Invalid medication ID"        
-#         # Check if there is sufficient quantity in the inventory
-# 		con.execute("SELECT * FROM Inventory WHERE MedicationID = %s", (medication_id,))
-# 		inventory = con.fetchone()
-# 		if inventory is None:
-# 			return "Invalid medication ID"
-# 			current_quantity = inventory[2]
-# 			if quantity_sold > current_quantity:
-# 				return "Insufficient quantity in the inventory"
-# 			       # Calculate the total price
-# 	price = drug[4]
-# 	total_price = quantity_sold * price
-# 			updated_quantity = current_quantity - quantity_sold
-#         	con.execute("UPDATE Inventory SET Quantity = %s WHERE MedicationID = %s", (updated_quantity, medication_id))
-        
-#         # Insert the sale record into the Sales table
-# 		con.execute("INSERT INTO Sales (MedicationID, QuantitySold, Price, SaleDate) VALUES (%s, %s, %s, CURDATE())",
-#                        (medication_id, quantity_sold, total_price))
-        
-#         # Commit the changes to the database
-#         db.commit()
-        
-#         return f"Drug sold successfully. Total price: {total_price}"
-    
-#     return render_template('sell_form.html')
-
-
-

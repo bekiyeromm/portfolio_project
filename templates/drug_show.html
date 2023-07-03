@@ -19,6 +19,8 @@
             <th>Name</th>
             <th>Manufacturer</th>
             <th>ExpiryDate</th>
+            <th>Update</th>
+            <th>Delete</th>
            
         </tr>
         {% for row in drug_data %}
@@ -27,13 +29,21 @@
             <td>{{ row[1] }}</td>
             <td>{{ row[2] }}</td>
             <td>{{ row[3] }}</td>
-            
+            <td>
+                <a href="/update_drug_form?DrugID=1">
+                    <i class="pencil-icon">edit</i>
+                </a>
+            </td>
+            <td>
+                <form action="/delete_drug" method="POST">
+                    <input type="hidden" name="drug_id" value="{{ row[0] }}">
+                    <input style="color: brown;" type="submit" value="Delete">
+                </form>
+            </td>
         </tr>
         {% endfor %}
     </table>
     <br><br>
-    <div> {% include 'delete_drug.html' %} </div><br><br><br>
-    <div> {% include 'update_drug.html' %} </div>
     <br><br>
     </div>
     </div>
