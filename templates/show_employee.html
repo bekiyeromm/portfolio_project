@@ -23,8 +23,7 @@
                 <th>Contact</th>
                 <th>Sex</th>
                 <th>Address</th>
-                <th>Update</th>
-                <th>Delete</th>
+                <th colspan="2">Action</th>
             </tr>
             {% for row in emp_s %}
             <tr>
@@ -34,12 +33,12 @@
                 <td>{{ row[3] }}</td>
                 <td>{{ row[4] }}</td>
                 <td>
-                    <a href="/update_employe_form?EmployeeID=1">
+                    <a href="/update_employe_form?EmployeeID=1" target="_self">
                         <i class="pencil-icon">edit</i>
                     </a>
                 </td>
                 <td>
-                    <form action="/delete_employee" method="POST">
+                    <form action="/delete_employee" method="POST" onsubmit="return confirmDelete()">
                         <input type="hidden" name="employee_id" value="{{ row[0] }}">
                         <input style="color: brown;" type="submit" value="Delete">
                     </form>
@@ -54,7 +53,7 @@
 
         <br><br>
     </div>
-
+    <script src="/static/scripts/delete.js"></script>
     <div> {% include 'footer.html' %} </div>
 </body>
 

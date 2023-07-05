@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine, text
 from flask import jsonify,request,redirect,render_template
-from employee import engine
+from models.employee import engine
 
 
 # insert into medicine table    insert_into_drug_db

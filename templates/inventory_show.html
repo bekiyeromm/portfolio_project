@@ -25,8 +25,7 @@
         <th>Quantity</th>
         <th>Location</th>
         <th>Expiry Date</th>
-        <th>Update</th>
-        <th>Delete</th>
+        <th colspan="2">Action</th>
       </tr>
       {% for row in inv %}
       <tr>
@@ -41,7 +40,7 @@
           </a>
         </td>
         <td>
-          <form action="/delete_inventory" method="POST">
+          <form action="/delete_inventory" method="POST" onsubmit="return confirmDelete()">
             <input type="hidden" name="inventory_id" value="{{ row[0] }}">
             <input style="color: brown;" type="submit" value="Delete">
           </form>
@@ -52,10 +51,11 @@
     </table>
 
     <br><br>
-    <!-- <div>{% include 'inventory.html' %}</div> -->
+    
     <br><br>
   </div>
   <div>{% include 'footer.html' %}</div>
+  <script src="/static/scripts/delete.js"></script>
 </body>
 
 </html>

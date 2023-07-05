@@ -1,6 +1,6 @@
 from flask import render_template, redirect, request,jsonify
 from sqlalchemy import text
-from employee import engine
+from models.employee import engine
 
 
 def show_inv_data():

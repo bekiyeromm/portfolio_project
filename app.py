@@ -3,11 +3,11 @@ from sqlalchemy import text
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 import os
-from drug import engine, show_drug, insert_into_drug_db,delete_drug_db,update_drug_in_drug_db
-from employee import search_data_from_emp, update_employee_in_emp_db,delete_emp_db
-from employee import insert_into_emp_db, load_users_from_db
-from inventory import insert_into_inventory,show_inv_data,delete_inventory, update_inventory
-from sales import insert_sales_into_database,view_sold_drug
+from models.drug import engine, show_drug, insert_into_drug_db,delete_drug_db,update_drug_in_drug_db
+from models.employee import search_data_from_emp, update_employee_in_emp_db,delete_emp_db
+from models.employee import insert_into_emp_db, load_users_from_db
+from models.inventory import insert_into_inventory,show_inv_data,delete_inventory, update_inventory
+from models.sales import insert_sales_into_database,view_sold_drug,delete_from_sales_db
 
 
 app = Flask(__name__)
@@ -217,18 +217,48 @@ def update_inv():
 @app.route('/create_sales', methods=['GET', 'POST'])
 def create_sales():
 	if request.method == 'POST':
-		medication_id = request.form['medication_id']
+		inventory_id = request.form['inventory_id']
 		quantity = int(request.form['quantity'])
 		price = float(request.form['price'])
 		sales_date = request.form['sales_date']
-		insert_sales_into_database(medication_id, quantity, price, sales_date)
+		insert_sales_into_database(inventory_id, quantity, price, sales_date)
 		# return "Sales data inserted successfully!"
-	return render_template('sell_form_reg.html')
+	return redirect('/sold_drug')
 
 @app.route('/sold_drug')
 def show_sold_drug():
 	sold_drug=view_sold_drug()
 	return render_template('sell_form.html',sold_drug=sold_drug)
+
+@app.route('/delete_sales', methods=['POST'])
+def del_sales():
+	sale_id = request.form['sale_id']
+	delete_from_sales_db(sale_id)
+	return redirect('/sold_drug')
+
+
+@app.route('/update_sales_form')
+def update_sales_form():
+	return render_template('update_sales.html')
+
+
+# @app.route('/update_sales', methods=['POST'])
+# def update_sales_route():
+#     if request.method == 'POST':
+#         sale_id = request.form['sale_id']
+#         medication_id = request.form['medication_id']
+#         quantity_sold = request.form['quantity_sold']
+#         price = request.form['price']
+#         sale_date = request.form['sale_date']
+#         data = {
+#             'sale_id': sale_id,
+#             'medication_id': medication_id,
+#             'quantity_sold': quantity_sold,
+#             'price': price,
+#             'sale_date': sale_date
+#         }
+#         update_sales(data)
+#     return redirect('/sold_drug')
 
 
 

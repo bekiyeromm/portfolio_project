@@ -9,3 +9,7 @@ th, td {
 th {
     background-color: #f2f2f2;
 }
+.container {
+    height: 250px; /* Adjust the height as needed */
+    overflow-y: scroll;
+}

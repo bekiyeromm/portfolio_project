@@ -13,8 +13,6 @@
     <div class="container">
         <h2 class="mb-2">Sell Drug</h2>
         <form action="/create_sales" method="POST">
-          <label for="medication_id">Medication ID:</label>
-          <input type="text" id="medication_id" name="medication_id" required><br>
 
           <label for="quantity">Quantity:</label>
           <input type="text" id="quantity" name="quantity" required><br>
@@ -25,6 +23,9 @@
           <label for="sales_date">Sales Date:</label>
           <input type="date" id="sales_date" name="sales_date" required><br>
           
+          <label for="medication_id">Inventory ID:</label>
+          <input type="text" id="inventory_id" name="inventory_id" required><br>
+
           <input type="submit" value="Create Sales">
         </form>
     </div>

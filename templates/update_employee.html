@@ -9,7 +9,7 @@
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" type="text/css" href="/static/styles/table.css" /> 
+    <!-- <link rel="stylesheet" type="text/css" href="/static/styles/table.css" />  -->
     <link rel="stylesheet" type="text/css" href="/static/styles/inventory.css">
     <title>Pims</title>
   </head>
@@ -17,7 +17,7 @@
     {% include 'nav.html' %}
     <div class="container">
       <h2 class="mt-2 mb-4">Update Employee</h2>
-      <form action="/update_employee" method="POST">
+      <form action="/update_employee" id="employeeForm" method="POST">
         <label for="employee_id">Employee ID:</label>
         <input
           type="text"
@@ -37,9 +37,10 @@
           </select><br />
         <label for="address">Address:</label>
         <input type="text" id="address" name="address" required /><br />
-        <input type="submit" value="Update" />
+        <input type="submit" value="update" id="updateButton"/>
       </form>
     </div>
+    <!-- <script src="/static/scripts/update_emp.js"></script> -->
     <div>{% include 'footer.html'%}</div>
   </body>
 </html>

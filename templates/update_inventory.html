@@ -12,8 +12,8 @@
 <body>
     {% include 'nav.html' %}
     <div class="container">
-        <h2 class="text-center mt-2 mb-4">Update Inventory Form</h2>
-      <form action="/update_inventory" method="post">
+        <h2 class="mt-2 mb-4">Update Inventory Form</h2>
+      <form id="inventoryForm" action="/update_inventory" method="post">
         <label for="inventoryId">Inventory ID:</label>
         <input type="text" id="inventoryId" name="inventoryId" required><br>
     
@@ -29,10 +29,13 @@
         <label for="expiryDate">Expiry Date:</label>
         <input type="date" id="expiryDate" name="expiryDate" required><br>
     
-        <input type="submit" value="Submit">
+        <input type="submit" id="updateButton" value="Submit">
         
       </form>
       </div>
       <div> {% include 'footer.html' %}</div>
+      <p id="warrantyNotification"></p>
+  
+      <script src="/static/scripts/expiry_date.js"></script>
 </body>
 </html>

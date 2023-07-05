@@ -1,52 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>drug management</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
-        <link rel="stylesheet" type="text/css" href="/static/styles/table.css" />   
-    </head>
+    <link rel="stylesheet" type="text/css" href="/static/styles/table.css" />
+</head>
 
 <body>
     {% include 'nav.html' %}
     <div class="container">
-        <div><h3 class="mb-5" style="text-align: center;">well come to Drug management page</h3></div>
-         <table>
-        <tr>
-            <th>DrugID</th>
-            <th>Name</th>
-            <th>Manufacturer</th>
-            <th>ExpiryDate</th>
-            <th>Update</th>
-            <th>Delete</th>
-           
-        </tr>
-        {% for row in drug_data %}
-        <tr>
-            <td>{{ row[0] }}</td>
-            <td>{{ row[1] }}</td>
-            <td>{{ row[2] }}</td>
-            <td>{{ row[3] }}</td>
-            <td>
-                <a href="/update_drug_form?DrugID=1">
-                    <i class="pencil-icon">edit</i>
-                </a>
-            </td>
-            <td>
-                <form action="/delete_drug" method="POST">
-                    <input type="hidden" name="drug_id" value="{{ row[0] }}">
-                    <input style="color: brown;" type="submit" value="Delete">
-                </form>
-            </td>
-        </tr>
-        {% endfor %}
-    </table>
-    <br><br>
-    <br><br>
+        <div>
+            <h3 class="mb-5" style="text-align: center;">well come to Drug management page</h3>
+        </div>
+        <table>
+            <tr>
+                <th>DrugID</th>
+                <th>Name</th>
+                <th>Manufacturer</th>
+                <th>ExpiryDate</th>
+                <th colspan="2">Action</th>
+
+            </tr>
+            {% for row in drug_data %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>
+                    <a href="/update_drug_form?DrugID=1">
+                        <i class="pencil-icon">edit</i>
+                    </a>
+                </td>
+                <td>
+                    <form action="/delete_drug" method="POST" onsubmit="return confirmDelete()">
+                        <input type="hidden" name="drug_id" value="{{ row[0] }}">
+                        <input style="color: brown;" type="submit" value="Delete">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br><br>
+        <br><br>
     </div>
-    </div>
+    <script src="/static/scripts/delete.js"></script>
     <div> {% include 'footer.html' %} </div>
 </body>
 
