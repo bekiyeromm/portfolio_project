@@ -46,11 +46,6 @@ def login():
 	except Exception as e:
 		# Display an error message for any exception
 		return render_template('login.html', error_message=str(e))
-	return render_template('login.html')
-		
-    
-
-
 
 @app.route("/signup")
 def reg_employe():
@@ -186,7 +181,7 @@ def del_inventory():
 def insert_into_inv():
 	data=request.form
 	insert_into_inventory(data)
-	return ("inventory item added successfully")
+	return redirect('/show_inventory')
 
 @app.route('/update_inv_form')
 def update_inv_form():

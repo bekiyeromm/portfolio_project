@@ -4,11 +4,16 @@ body {
     margin: 0;
     padding: 0;
 }
-
+.navv {
+    background-color: hwb(270 11% 89%);
+    color: #fff;
+    padding: 20px;
+  }
 header {
-    background-color: #f2f2f2;
-    text-align: center;
-    padding: 50px 0;
+  background-color: hsl(228, 40%, 40%);
+  color: #fff;
+  padding: 20px;
+  text-align: center;
 }
 
 .features {
@@ -47,3 +52,72 @@ header {
     background-color: #0056b3;
 }
 
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    margin-right: 10px;
+    text-decoration: none;
+  }
+  #about {
+    padding: 50px;
+  }
+  
+  #about h2 {
+    margin-bottom: 20px;
+  }
+  
+  #about ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #about ul li {
+    margin-bottom: 10px;
+  }
+  
+  #about ul li a {
+    text-decoration:blanchedalmond;
+  }  
+
+  @media screen and (max-width: 768px) {
+    .navv {
+      text-align: center;
+    }
+    
+    .navv nav {
+      display: block;
+      margin-bottom: 20px;
+    }
+    
+    .navv ul li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    
+    header {
+      text-align: center;
+    }
+    
+    .features {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 20px;
+    }
+    
+    .feature {
+      text-align: center;
+    }
+    
+    #about ul {
+      padding-left: 0;
+    }
+  }

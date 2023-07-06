@@ -1,4 +1,3 @@
-// Function to display a popup message
 function showPopupMessage(message) {
   alert(message);
 }
