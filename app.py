@@ -16,6 +16,10 @@ load_dotenv()
 connection_string = os.getenv('DATABASE_CONNECTION_STRING')
 engine = create_engine(connection_string)
 
+@app.route('/user_regg')
+def user_reggg():
+	return render_template('user_reg.html')
+
 @app.route('/')
 def home():
 	user = load_users_from_db()

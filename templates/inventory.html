@@ -14,29 +14,29 @@
   {% include 'nav.html' %}
   <div class="container">
     <h2 class="mt-2 mb-4">Register new inventory Itme </h2>
-  <form id="inventoryForm" action="/show_inventory" method="post">
+  <form id="inventoryForm" action="/show_inventory" method="post" onsubmit="return validateForm();">
     <label for="inventoryId">Inventory ID:</label>
-    <input type="text" id="inventoryId" name="inventoryId" required>
+    <input type="text" id="inventoryId" name="inventoryId" >
 
     <label for="medicationId">Medication ID:</label>
-    <input type="text" id="medicationId" name="medicationId" required>
+    <input type="text" id="medicationId" name="medicationId" >
 
     <label for="quantity">Quantity:</label>
-    <input type="number" id="quantity" name="quantity" required>
+    <input type="number" id="quantity" name="quantity" >
 
     <label for="location">Location:</label>
-    <input type="text" id="location" name="location" required>
+    <input type="text" id="location" name="location" >
 
     <label for="expiryDate">Expiry Date:</label>
-    <input type="date" id="expiryDate" name="expiryDate" required><br>
+    <input type="date" id="expiryDate" name="expiryDate" ><br>
 
     <input type="submit" value="submit">
     
   </form>
   </div>
   <p id="warrantyNotification"></p>
-  
-  <script src="/static/scripts/expiry_date.js"></script>
   <div>{% include 'footer.html' %}</div>
+  <script src="/static/scripts/expiry_date.js"></script>
+  <script src="/static/scripts/validate_inventory.js"></script>
 </body>
 </html>

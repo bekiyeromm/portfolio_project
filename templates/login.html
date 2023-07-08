@@ -8,11 +8,12 @@
   <div class="login-container">
     <h2>Well come to PIMS</h2>
     <h2>Login</h2>
-    <form action="/login" method="POST">
-      <input type="text" id="username" name="username" placeholder="username" required>
-      <input type="password" id="password" name="password" placeholder="password" required>
+    <form action="/login" method="POST" onsubmit="return validateForm();">
+      <input type="text" id="username" name="username" placeholder="username" >
+      <input type="password" id="password" name="password" placeholder="password">
       <input type="submit" value="Log In">
     </form>
   </div>
+  <script src="/static/scripts/validate_user.js"></script>
 </body>
 </html>

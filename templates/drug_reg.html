@@ -18,22 +18,22 @@
 
     <div class="container">
       <h2 class="mb-2 mt-2">Register Drug Here!</h2>
-      <form action="/push_drug" method="post">
+      <form action="/push_drug" method="post" onsubmit="return validateForm();">
         <!-- regg is the same as the name of the route -->
         <div class="">
           <label for="id">DrugID</label>
-          <input type="text" name="id" required placeholder="1234" />
+          <input type="text" id="id" name="id"  placeholder="1234" />
         </div>
         <div class="mb-3 mt-4">
           <label for="name">Name</label>
-          <input type="text" name="name" required placeholder="amaoxa" />
+          <input type="text" id="name" name="name"  placeholder="amaoxa" />
         </div>
         <div class="mb-3 mt-4">
           <label for="manufacturer">Manufacturer</label>
           <input
             type="text"
+            id="manufacturer"
             name="manufacturer"
-            required
             placeholder="ethio"
           />
         </div>
@@ -41,8 +41,8 @@
           <label for="expirydate">Expirydate</label>
           <input
             type="date"
+            id="expirydate"
             name="expirydate"
-            required
             placeholder="2023-10-25"
           />
         </div>
@@ -52,5 +52,6 @@
       </form>
     </div>
     {% include 'footer.html' %}
+    <script src="/static/scripts/validate_drug.js"></script>
   </body>
 </html>
