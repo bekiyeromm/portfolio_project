@@ -17,16 +17,17 @@
         <!-- regg is the same as the name of the route -->
         <div class="mb-3 mt-4">
           <label for="id">DrugID</label><br />
-          <input type="text" name="id" required placeholder="1234" />
+          <input type="text" id="id" name="id" required placeholder="1234" />
         </div>
         <div class="mb-3 mt-4">
           <label for="name">Name</label><br />
-          <input type="text" name="name" required placeholder="amaoxa" />
+          <input type="text" id="name" name="name" required placeholder="amaoxa" />
         </div>
         <div class="mb-3 mt-4">
           <label for="manufacturer">Manufacturer</label><br />
           <input
             type="text"
+            id="manufacturer"
             name="manufacturer"
             required
             placeholder="ethio"
@@ -36,6 +37,7 @@
           <label for="expirydate">Expirydate</label><br />
           <input
             type="date"
+            id="expirydate"
             name="expirydate"
             required
             placeholder="2023-10-25"
@@ -47,5 +49,7 @@
       </form>
     </div>
     {% include 'footer.html' %}
+    <script src="/static/scripts/validate_drug_update.js"></script>
+    <script src="/static/scripts/validate_drug.js"></script>
   </body>
 </html>

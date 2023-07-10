@@ -18,12 +18,21 @@
         <ul class="submenu">
           <li class="nav-item">
           <li><a class="nav-link" href="{{ url_for ('drugg_reg') }}"> Drug Registration</a></li>
-          <li><a class="nav-link" href="{{ url_for('display_drug') }}"> show drug</a></li>
-          <li><a href="http://127.0.0.1:5000/search_drug">Search Medicine</a></li>
-          <li><a href="http://127.0.0.1:5000/sell_drug">Sell Drug Medicine</a></li>
-          <li><a href="http://127.0.0.1:5000/generate_drug">Generate report</a></li>
+          <li><a class="nav-link" href="{{ url_for('display_drug') }}"> show Registered drug</a></li>
+          <li><a href="{{ url_for('sel_drug') }}">Sell Drug</a></li>
+          <li><a href="{{ url_for('show_sold_drug') }}">show selled Drug</a></li>
         </ul>
       </li>
+
+      <li><a href="#">Inventory Management</a>
+        <ul class="submenu">
+          <li class="nav-item">
+          <li><a class="nav-link" href="{{ url_for('inventory_reg_form') }}"> new Inventory Registration</a></li>
+          <li><a class="nav-link" href="{{ url_for('display_inventory_data') }}"> show Inventory Item</a></li>
+          <li><a href="http://127.0.0.1:5000/search_drug">Update Inventory Item</a></li>
+        </ul>
+      </li>
+
       <li><a href="#">Sell Drug</a>
         <ul class="submenu">
           <li><a href="#">Update</a></li>

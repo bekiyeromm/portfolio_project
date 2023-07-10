@@ -42,11 +42,17 @@
           <!-- </a> -->
         <!-- </td> -->
         <td>
-          <form action="/delete_sales" method="POST">
+          <form action="/delete_sales" method="POST" >
             <input type="hidden" name="sale_id" value="{{ row[0] }}">
             <input style="color: brown;" type="submit" value="Delete">
           </form>
         </td>
+
+        <!-- <td>
+          <form action="/generate_receipt/{{ row[0] }}" method="GET" target="_blank">
+              <input type="submit" value="Generate Receipt">
+          </form>
+        </td> -->
 
       </tr>
       {% endfor %}

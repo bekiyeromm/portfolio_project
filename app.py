@@ -2,6 +2,7 @@ from flask import Flask,render_template, jsonify,request,redirect
 from sqlalchemy import text
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
+import datetime
 import os
 from models.drug import engine, show_drug, insert_into_drug_db,delete_drug_db,update_drug_in_drug_db
 from models.employee import search_data_from_emp, update_employee_in_emp_db,delete_emp_db
@@ -16,14 +17,14 @@ load_dotenv()
 connection_string = os.getenv('DATABASE_CONNECTION_STRING')
 engine = create_engine(connection_string)
 
-@app.route('/user_regg')
-def user_reggg():
-	return render_template('user_reg.html')
-
 @app.route('/')
+def landing():
+	return render_template('landing.html');
+
+@app.route('/login')
 def home():
 	user = load_users_from_db()
-	return render_template('login.html', jobs = user);
+	return render_template('login.html', user = user);
 
  # creating api to retrive the user email and pass as json file
 @app.route("/main")
@@ -126,7 +127,7 @@ def insert_drug():
 	dataa = request.form
 	print("hello")
 	insert_into_drug_db(dataa)
-	return render_template('drug_submited.html', da=dataa)
+	return redirect('/show_drug')
 
 # display list of available drug
 @app.route('/show_drug')
@@ -139,7 +140,7 @@ def display_drug():
 def delete_drugg():
 	drug_id = request.form["drug_id"]
 	delete_drug_db(drug_id)
-	return render_template('delete_drug_submited.html', drugg=drug_id)
+	return redirect('/show_drug')
 
 @app.route('/sell_drug_form')
 def sel_drug():
@@ -236,28 +237,31 @@ def del_sales():
 	return redirect('/sold_drug')
 
 
-@app.route('/update_sales_form')
-def update_sales_form():
-	return render_template('update_sales.html')
+# @app.route('/update_sales_form')
+# def update_sales_form():
+# 	return render_template('update_sales.html')
 
-
-# @app.route('/update_sales', methods=['POST'])
-# def update_sales_route():
-#     if request.method == 'POST':
-#         sale_id = request.form['sale_id']
-#         medication_id = request.form['medication_id']
-#         quantity_sold = request.form['quantity_sold']
-#         price = request.form['price']
-#         sale_date = request.form['sale_date']
-#         data = {
-#             'sale_id': sale_id,
-#             'medication_id': medication_id,
-#             'quantity_sold': quantity_sold,
-#             'price': price,
-#             'sale_date': sale_date
-#         }
-#         update_sales(data)
-#     return redirect('/sold_drug')
+# @app.route('/generate_receipt/<sale_id>')
+# def generate_receipt(sale_id):
+#     # Fetch sales data from the database using the sale_id
+# 	sales_query = "SELECT SaleID, InventoryID, QuantitySold, Price, SaleDate FROM Sales WHERE SaleID = :sale_id"
+# 	sales_values = {"sale_id": sale_id}
+# 	with engine.connect() as conn:
+# 		result = conn.execute(text(sales_query), sales_values).fetchone()
+# 		if result is None:
+# 			return "Invalid Sale ID"
+# 		sale_id = result[0]
+# 		inventory_id = result[1]
+# 		quantity = result[2]
+# 		price = result[3]
+# 		sales_date = result[4]
+# 		sales_date = sales_date.strftime('%Y-%m-%d')
+# 		total_price = quantity * price
+# 		# Convert sales_date to a readable format
+# 		sales_date = datetime.datetime.strptime(sales_date, '%Y-%m-%d').strftime('%d-%m-%Y')
+# 		# Render the receipt template with the sales data
+# 		return render_template('receipt.html', sale_id=sale_id, inventory_id=inventory_id, quantity=quantity,
+# 			 price=price, sales_date=sales_date, total_price=total_price)
 
 
 

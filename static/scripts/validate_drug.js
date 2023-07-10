@@ -1,4 +1,4 @@
-function validateForm() {
+function validate_drug_Form() {
     var id = document.getElementById("id").value;
     var name = document.getElementById("name").value;
     var manufacturer = document.getElementById("manufacturer").value;
@@ -14,7 +14,7 @@ function validateForm() {
     }
   
       if (manufacturer.trim() === "" || manufacturer.trim().length<4) {
-        alert("please Enter Manufacturer");
+        alert("please Enter valid Manufacturer name");
         return false;
       }
       if (expirydate.trim() === "") {

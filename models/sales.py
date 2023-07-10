@@ -25,28 +25,25 @@ def insert_sales_into_database(inventory_id, quantity, price, sales_date):
         check_query = "SELECT Quantity FROM Inventory WHERE InventoryID = :inventory_id"
         check_values = {"inventory_id": inventory_id}
         result = conn.execute(text(check_query), check_values).fetchone()
-        
         if result is None:
             return "Invalid Medication ID"
         
         current_quantity = result[0]
-        
         if current_quantity < quantity:
             return "Insufficient quantity of drug"
-        
         # Update sales data
         insert_query = "INSERT INTO Sales (InventoryID, QuantitySold, Price, SaleDate) VALUES (:inventory_id, :quantity, :price, :sales_date)"
         insert_values = {"inventory_id": inventory_id, "quantity": quantity, "price": price, "sales_date": sales_date}
         conn.execute(text(insert_query), insert_values)
-        
         # Update inventory data
         update_query = "UPDATE Inventory SET Quantity = Quantity - :quantity_sold WHERE InventoryID = :inventory_id"
         update_values = {"quantity_sold": quantity, "inventory_id": inventory_id}
         conn.execute(text(update_query), update_values)
         
         conn.commit()
-    
-    return "Drug sold successfully!"
+    return ("drug sold successfully")
+    #     receipt_url = "/generate_receipt/{}".format(result.lastrowid)  # Assuming last inserted sale ID
+    # return "Drug sold successfully! Receipt: <a href='{}' target='_blank'>View Receipt</a>".format(receipt_url)
 
 
 def view_sold_drug():

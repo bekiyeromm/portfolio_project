@@ -18,7 +18,7 @@
 
     <div class="container">
       <h2 class="mb-2 mt-2">Register Drug Here!</h2>
-      <form action="/push_drug" method="post" onsubmit="return validateForm();">
+      <form id="drug_reg_Form" action="/push_drug" method="post" onsubmit="return validate_drug_Form();">
         <!-- regg is the same as the name of the route -->
         <div class="">
           <label for="id">DrugID</label>
@@ -51,7 +51,9 @@
         </div>
       </form>
     </div>
+    <p id="warrantyNotification"></p>
     {% include 'footer.html' %}
+    <script src="/static/scripts/drug_expiry_date.js"></script>
     <script src="/static/scripts/validate_drug.js"></script>
   </body>
 </html>
