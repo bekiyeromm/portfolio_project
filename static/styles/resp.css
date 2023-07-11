@@ -1,0 +1,28 @@
+
+    /* Add custom styles for responsiveness */
+    @media screen and (max-width: 768px) {
+      /* Adjust navbar-brand */
+      .navbar-brand {
+        margin-right: 0;
+      }
+      
+      /* Center the navbar-brand logo */
+      .navbar-brand img {
+        display: block;
+        margin: 0 auto;
+      }
+      
+      /* Collapse the navbar items into a dropdown menu */
+      .navbar-nav {
+        flex-direction: column;
+      }
+      
+      .nav-item {
+        margin-bottom: 10px;
+      }
+      
+      .navbar-collapse {
+        background-color: #e0e9f0;
+        color: #000000;
+      }
+    }
