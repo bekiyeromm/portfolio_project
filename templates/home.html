@@ -17,11 +17,14 @@
         }
     </style>
 </head>
+
 <body style="color: #000000;">
     {% include 'nav.html' %}
-    <h2 class="text-center" style="font-family: 'Courier New', Courier, monospace;">
-        Pharmacy information management system
-    </h2>
+    <div>
+        <h2 class="text-center mt-4 mb-4" style="font-family: 'Courier New', Courier, monospace; color: darkslategrey;">
+            Pharmacy information management system
+        </h2>
+    </div>
     <img src="/static/images/pharmac.jpg" class="img-fluid" id="banner" alt="pharmacy" height="320" />
     <div class="container">
         <h2 class="text-center mt-2 mb-4" style="font-family: 'Courier New', Courier, monospace;">About Us</h2>
@@ -39,7 +42,7 @@
         <div class="text-center">
             <a href="mailto:bekitena34@gmail.com?subject=requesting for medicine" target="_blank" mt-2 mb-4">contact
                 us</a>
-            <div>{% include 'footer.html' %}</div>
+            <div style="margin-bottom: 0;">{% include 'footer.html' %}</div>
         </div>
     </div>
 </body>

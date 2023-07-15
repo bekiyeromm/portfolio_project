@@ -1,28 +1,13 @@
-/* Styles for the footer */
-.footer {
-    background-color: #f1f1f1;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .footer a {
-    color: #333;
-    text-decoration: none;
-    margin: 0 10px;
-  }
-  
-  .footer a:hover {
-    text-decoration: underline;
-  }
-  
-  /* body {
-    min-height: 100%;
-    margin: 0;
-    padding: 0;
+
+  body {
     display: flex;
     flex-direction: column;
-  } */
+    min-height: 100vh;
+  }
+
   .footer {
-    background-color: #f0f0f0;
-    padding: 10px;
+    margin-top: auto;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    text-align: center;
   }

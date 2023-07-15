@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Login Form</title>
   <link rel="stylesheet" href="/static/styles/login.css">
 </head>
+
 <body>
   <div class="login-container">
-    
+
     <h2>Login</h2>
     <form action="/login" method="POST" onsubmit="return validateForm();">
-      <input type="text" id="username" name="username" placeholder="username" >
+      <input type="text" id="username" name="username" placeholder="username">
       <input type="password" id="password" name="password" placeholder="password">
       <input type="submit" value="Log In">
     </form>
   </div>
   <script src="/static/scripts/validate_user.js"></script>
 </body>
+
 </html>

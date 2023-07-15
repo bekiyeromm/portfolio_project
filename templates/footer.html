@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <link rel="stylesheet" href="/static/styles/footer.css">
 </head>
-<body>
-  <div class="b-example-divider"></div>
-<div class="container">
-  <footer class="footer">
-    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-      <li class="nav-item"><a href="http://127.0.0.1:5000/" class="nav-link px-2 text-body-secondary">Home</a></li>
-      <li class="nav-item"><a href="http://127.0.0.1:5000/about" class="nav-link px-2 text-body-secondary">About us</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary"></a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary"></a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary"> </a></li>
-    </ul>
-    <p class="text-center text-body-secondary">copyright&copy; 2023 beki yerom</p>
-  </footer>
-</div>
 
+<body>
+  <div class="container">
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item"><a href="{{ url_for ('main') }}" class="nav-link px-2 text-body-secondary">Home</a></li>
+        <li class="nav-item"><a href="{{ url_for ('about') }}" class="nav-link px-2 text-body-secondary">About us</a>
+        </li>
+      </ul>
+      <p class="text-center text-body-secondary">&copy; 2023 beki yerom</p>
+    </div>
+  </footer>
 </body>
+
 </html>

@@ -34,15 +34,15 @@
         <td>{{ row[2] }}</td>
         <td>{{ row[3] }}</td>
         <td>{{ row[1] * row[2] }}</td>
-        
-        
+
+
         <!-- <td> -->
-          <!-- <a href="/update_sales_form?SaleID=1"> -->
-            <!-- <i class="pencil-icon">edit</i> -->
-          <!-- </a> -->
+        <!-- <a href="/update_sales_form?SaleID=1"> -->
+        <!-- <i class="pencil-icon">edit</i> -->
+        <!-- </a> -->
         <!-- </td> -->
         <td>
-          <form action="/delete_sales" method="POST" >
+          <form action="/delete_sales" method="POST">
             <input type="hidden" name="sale_id" value="{{ row[0] }}">
             <input style="color: brown;" type="submit" value="Delete">
           </form>

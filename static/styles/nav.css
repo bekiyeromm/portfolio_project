@@ -1,38 +1,31 @@
-ul.navbar {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-  }
+    nav {
+      background-color: #333;
+      overflow: hidden;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+    }
 
-  ul.navbar li {
-    float: left;
-  }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 17px;
+      margin: 0 10px;
+    }
 
-  ul.navbar li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
+    nav a:hover {
+      color: #4CAF50;
+    }
 
-  ul.navbar li a:hover {
-    background-color: #111;
-  }
-
-  ul.submenu {
-    display: none;
-    position: absolute;
-    background-color: #444;
-  }
-
-  ul.submenu li {
-    float: none;
-    display: block;
-  }
-
-  ul.navbar li:hover ul.submenu {
-    display: block;
-  }
+    /* Style the navigation menu for small screens */
+    @media screen and (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        padding: 10px 0;
+      }
+      
+      nav a {
+        margin: 5px 0;
+      }
+    }

@@ -1,60 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="/static/styles/nav.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/styles/nav.css">
+    <title>Pims</title>
+  
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: black;">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="{{ url_for ('main') }}"> <img style="border-radius: 20px; height: 60px; width: 60px; background-color: blueviolet;" src="/static/images/med.jpeg" alt="medicine"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav" style="background-color: #e0e9f0; color: #000000;">
-        <ul class="navbar-nav">
-          
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="{{ url_for ('main') }}"> Home</a>
-          </li> -->
-
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for ('drugg_reg') }}"> Register Drug</a>
-          
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('display_drug') }}"> Show Drug</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('sel_drug') }}"> Sell Drug</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('show_sold_drug') }}"> show Sold Drug</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('reg_employe') }}">Register Employee</a>
-          </li>
-         
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('display_all_employe') }}"> Show Employee</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('inventory_reg_form') }}"> Inventory</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('display_inventory_data') }}"> show Inventory</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Logout</a>
-          </li>
-        </ul>
-      </div>
+  <nav>
+    <div>
+      <a class="active" href="{{ url_for ('main') }}"> Home</a>
+      <a href="{{ url_for ('drugg_reg') }}"> Register Drug</a>
+      <a href="{{ url_for('display_drug') }}"> Show Drug</a>
+      <a href="{{ url_for('sel_drug') }}"> Sell Drug</a>
+      <a href="{{ url_for('show_sold_drug') }}"> show Sold Drug</a>
+      <a href="{{ url_for('reg_employe') }}">Register Employee</a>
+      <a href="{{ url_for('display_all_employe') }}"> Show Employee</a>
+      <a href="{{ url_for('inventory_reg_form') }}"> Inventory</a>
+      <a href="{{ url_for('display_inventory_data') }}"> show Inventory</a>
+    </div>
+    <div>
+      <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Logout</a>
     </div>
   </nav>
- 
 </body>
 </html>
