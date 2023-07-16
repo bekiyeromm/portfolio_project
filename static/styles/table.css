@@ -3,13 +3,13 @@ table {
     width: 100%;
 }
 th, td {
-    border: 1px solid black;
+    border: 1px solid rgb(90, 144, 95);
     padding: 8px;
 }
 th {
-    background-color: #f2f2f2;
+    background-color: #747674;
 }
 .container {
-    height: 250px; /* Adjust the height as needed */
+    height: 250px;
     overflow-y: scroll;
 }
